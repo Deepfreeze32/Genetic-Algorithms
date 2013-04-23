@@ -5,7 +5,7 @@
 package satsolving;
 
 /**
- * The Satisfiability Solving GA
+ * The Satisfiability Solving GA.
  * @author tcc10a
  */
 public class SatSolving {

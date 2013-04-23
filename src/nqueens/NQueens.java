@@ -5,7 +5,7 @@
 package nqueens;
 
 /**
- * The N-Queens Satisfiability solving problem.
+ * The N-Queens GA.
  * @author tcc10a
  */
 public class NQueens {
