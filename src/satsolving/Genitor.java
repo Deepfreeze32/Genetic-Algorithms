@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package nqueens;
+package satsolving;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,16 +12,17 @@ import java.util.List;
  * @author tcc10a
  */
 public class Genitor {
-
     private static List<Solution> solutions;
+    private static List<String> clauses;
     private static List<Solution> lastBest;
 
-    public Genitor(int n) {
-        //Generate initial populations
+    public Genitor(int n, List<String> clause) {
+        //Generate initial populations\
+        clauses = clause;
         solutions = new ArrayList<>();
         lastBest = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
-            Solution s = new Solution(n);
+            Solution s = new Solution(n,clauses);
             solutions.add(s);
         }
     }
@@ -55,43 +56,18 @@ public class Genitor {
         solutions = new ArrayList<>();
         solutions.add(keep);
         for (int i = 0; i < 99; i++) {
-            Solution k = new Solution(keep.getCols().size());
+            Solution k = new Solution(keep.getVars().size(),clauses);
             k.mutate();
             solutions.add(k);
         }
     }
 
-    public static void printQueens(Solution q) throws Exception {
-        printQueens(q.getCols());
-    }
-
-    public static void printQueens(List<Integer> q) throws Exception {
-
-        int N = q.size();
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                if (q.get(j) == i+1) {
-                    System.out.print("Q ");
-                } else {
-                    System.out.print("* ");
-                }
-            }
-            System.out.println();
-        }
-        System.out.println();
-    }
-
-    public static void printAll() throws Exception {
-        for (int i = 0; i < solutions.size(); i++) {
-            printQueens(solutions.get(i));
-        }
-    }
 
     public static Solution go() throws Exception {
         Solution best = null;
         while (true) {
             rank();
-            printAll();
+            
             if (solutions.get(0).getFitness() == 0) {
                 best = solutions.get(0);
                 break;

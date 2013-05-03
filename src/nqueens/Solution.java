@@ -13,7 +13,8 @@ import java.util.Random;
  *
  * @author tcc10a
  */
-public class Solution implements Comparable {
+public class Solution {
+
     public static Random rand;
     public static List<Integer> columns;
     public static int fitness;
@@ -22,21 +23,30 @@ public class Solution implements Comparable {
         rand = new Random();
         columns = new ArrayList<>();
         for (int i = 0; i < n; i++) {
-            columns.add(getRand(1,n));
+            int r;
+            while (true) {
+                r = getRand(1, n);
+                if (!columns.contains(r)) {
+                    break;
+                }
+            }
+            columns.add(r);
         }
+        System.out.print(columns);
+        System.out.println();
         fitness();
     }
-    
+
     public Solution(Solution a, Solution b) throws Exception {
         List<Integer> aCols = a.getCols();
         List<Integer> bCols = b.getCols();
         if (aCols.size() != bCols.size()) {
             throw new Exception("This shouldn't have happened! Solution sizes don't match");
         }
-            
-        int crossover = getRand(0,aCols.size());
+
+        int crossover = getRand(0, aCols.size());
         columns = new ArrayList<>();
-        for (int i = 0; i < aCols.size();i++) {
+        for (int i = 0; i < aCols.size(); i++) {
             if (i <= crossover) {
                 columns.add(aCols.get(i));
             } else {
@@ -46,7 +56,7 @@ public class Solution implements Comparable {
         fitness();
     }
 
-    public static boolean conflict(List<Integer> q, int n) {
+    public boolean conflict(List<Integer> q, int n) {
         for (int i = 0; i < n; i++) {
             if (q.get(i) == q.get(n)) {
                 return false;
@@ -60,26 +70,36 @@ public class Solution implements Comparable {
         }
         return true;
     }
-    
-    public static int getRand(int min, int max) {
-        return rand.nextInt(max-min+1)+min;
+
+    private int getRand(int min, int max) {
+        return rand.nextInt(max - min + 1) + min;
     }
     
-    public void mutate() {
-        for (Integer k : columns) {
-            int mute = getRand(1,2);
-            if (mute == 1) {
-                //mutate this bit
-                k = getRand(1,columns.size());
-            }
+    public void normalMutate() {
+        int chance = getRand(1,100);
+        if (chance <= 3) {
+            int k = getRand(1, columns.size())-1;
+            columns.set(k,getRand(1, columns.size()));
         }
+        fitness();
     }
 
-    public static int getFitness() {
+    public void mutate() {
+        for (Integer k : columns) {
+            int mute = getRand(1, 2);
+            if (mute == 1) {
+                //mutate this bit
+                k = getRand(1, columns.size());
+            }
+        }
+        fitness();
+    }
+
+    public int getFitness() {
         return fitness;
     }
-    
-    public static void fitness() {
+
+    private void fitness() {
         fitness = 0;
 
         for (int i = 0; i < columns.size(); i++) {
@@ -104,33 +124,5 @@ public class Solution implements Comparable {
 
     public List<Integer> getCols() {
         return columns;
-    }
-
-    public int compareTo(Solution s) {
-        final int BEFORE = -1;
-        final int EQUAL = 0;
-        final int AFTER = 1;
-
-        //this optimization is usually worthwhile, and can
-        //always be added
-        if (this == s) {
-            return EQUAL;
-        }
-
-        //primitive numbers follow this form
-        if (this.fitness < s.fitness) {
-            return BEFORE;
-        }
-        if (this.fitness > s.fitness) {
-            return AFTER;
-        }
-
-
-        return EQUAL;
-    }
-
-    @Override
-    public int compareTo(Object o) {
-        return compareTo((Solution) o);
     }
 }
