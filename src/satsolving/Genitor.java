@@ -53,7 +53,7 @@ public class Genitor {
 
     public static void cataclysmicMutation() {
         Solution keep = solutions.get(0);
-        solutions = new ArrayList<>();
+        solutions.clear();
         solutions.add(keep);
         for (int i = 0; i < 99; i++) {
             Solution k = new Solution(keep.getVars().size(),clauses);

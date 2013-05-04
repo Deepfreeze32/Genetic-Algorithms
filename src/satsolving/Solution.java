@@ -53,22 +53,34 @@ public class Solution {
     }
 
     public void mutate() {
-        for (Boolean k : variables) {
+        for (int i = 0; i < variables.size(); i++) {
             int mute = getRand(1, 2);
             if (mute == 1) {
                 //mutate this bit
-                k = generateBool();
+                variables.set(i,generateBool());
             }
         }
         fitness();
     }
 
     public int getFitness() {
+        fitness();
         return fitness;
     }
 
     private void fitness() {
         fitness = 0;
-        
+        for (String clause : clauses) {
+            String[] cls = clause.split(" ");
+            String var1 = cls[0];
+            String op1 = cls[1];
+            String var2 = cls[2];
+            String op2 = cls[3];
+            String var3 = cls[4];
+            
+            if (op1.equals("&")) {
+                
+            }
+        }
     }
 }

@@ -44,10 +44,11 @@ public class Solution {
             throw new Exception("This shouldn't have happened! Solution sizes don't match");
         }
 
-        int crossover = getRand(0, aCols.size());
+        ;
         columns = new ArrayList<>();
         for (int i = 0; i < aCols.size(); i++) {
-            if (i <= crossover) {
+            int crossover = getRand(1,2);
+            if (crossover == 1) {
                 columns.add(aCols.get(i));
             } else {
                 columns.add(bCols.get(i));
