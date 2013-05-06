@@ -62,7 +62,14 @@ public class Genitor {
     
     public Solution go() {
         Solution best = null;
+        int maxIt = (int) Math.pow(2, pop.get(0).getSet().size());
+        int iterator = 0;
         while (true) {
+            if (iterator == maxIt) {
+                //This means we've wasted as much time as an exhaustive search.
+                best = pop.get(0);
+                break;
+            }
             rank();
             if (pop.get(0).getFitness() == 0) {
                 best = pop.get(0);
@@ -123,6 +130,7 @@ public class Genitor {
                 pop.remove(pop.size() - 1);
                 pop.add(child);
             }
+            iterator++;
         }
         return best;
     }

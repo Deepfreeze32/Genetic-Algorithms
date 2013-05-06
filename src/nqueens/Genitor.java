@@ -89,7 +89,17 @@ public class Genitor {
 
     public static Solution go() throws Exception {
         Solution best = null;
+        int N = solutions.get(0).getCols().size();
+        if (N == 2 || N == 3) {
+            return null;
+        }
+        int maxIt = (int) Math.pow(N, 2);
+        int counter = 0;
         while (true) {
+            if (counter == maxIt) {
+                best = solutions.get(0);
+                break;
+            }
             rank();
             printAll();
             if (solutions.get(0).getFitness() == 0) {
@@ -151,6 +161,7 @@ public class Genitor {
                 solutions.remove(solutions.size() - 1);
                 solutions.add(child);
             }
+            counter++;
         }
         return best;
     }

@@ -48,6 +48,15 @@ public class Items {
         return fitness;
     }
     
+    public void printPack(List<Boolean> set) {
+        System.out.println("Items taken:\n");
+        for (int i = 0; i < set.size(); i++) {
+            if (set.get(i)) {
+                System.out.println("Name: "+names.get(i)+"; Weight: "+weights.get(i)+"; value: "+values.get(i));
+            }
+        }
+    }
+    
     public void setCap(int c) {
         cap = c;
     }
