@@ -55,4 +55,8 @@ public class Items {
     public int getCap() {
         return cap;
     }
+    
+    public int size() {
+        return values.size();
+    }
 }

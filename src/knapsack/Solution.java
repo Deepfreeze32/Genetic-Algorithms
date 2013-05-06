@@ -29,6 +29,31 @@ public class Solution {
         fitness = knapsack.evaluate(set);
     }
     
+    public List<Boolean> getSet() {
+        return set;
+    }
+    
+    public void mutate() {
+        int chance = getRand(0,99);
+        if (chance < 3) {
+            int bitToFlip = getRand(0,set.size()-1);
+            set.set(bitToFlip,!set.get(bitToFlip));
+        }
+    }
+    
+    public Solution(Solution a, Solution b) {
+        int cross = getRand(1,set.size()-1);
+        int size = set.size();
+        set.clear();
+        for (int i = 0; i < size; i++) {
+            if (i < cross) {
+                set.add(a.getSet().get(i));
+            } else {
+                set.add(b.getSet().get(i));
+            }
+        }
+    }
+    
     public int getFitness() {
         return fitness;
     }
