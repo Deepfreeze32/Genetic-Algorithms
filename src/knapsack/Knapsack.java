@@ -1,12 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package knapsack;
 
 /**
- *
- * @author tcc10a
+ * The main class for the Knapsack solver
+ * @author Deepfreeze32
  */
 public class Knapsack {
     public static void main(String[] args) {

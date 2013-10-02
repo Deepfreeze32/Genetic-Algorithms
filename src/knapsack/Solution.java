@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package knapsack;
 
 import java.util.ArrayList;
@@ -9,8 +5,8 @@ import java.util.List;
 import java.util.Random;
 
 /**
- *
- * @author tcc10a
+ * The Solution class.
+ * @author Deepfreeze32
  */
 public class Solution {
     private Random rand;

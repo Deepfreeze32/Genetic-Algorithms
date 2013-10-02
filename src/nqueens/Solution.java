@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package nqueens;
 
 import java.util.ArrayList;
@@ -11,7 +7,7 @@ import java.util.Random;
 /**
  * The candidate solution class for the N-Queens GA.
  *
- * @author tcc10a
+ * @author Deepfreeze32
  */
 public class Solution {
 

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package nqueens;
 
 import java.util.ArrayList;
@@ -13,7 +9,7 @@ import static nqueens.Genitor.go;
 
 /**
  * The N-Queens GA.
- * @author tcc10a
+ * @author Deepfreeze32
  */
 public class NQueens {
     public static void main(String[] args) {

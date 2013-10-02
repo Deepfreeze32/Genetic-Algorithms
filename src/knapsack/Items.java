@@ -1,15 +1,11 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package knapsack;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author tcc10a
+ * The item collection class. 
+ * @author Deepfreeze32
  */
 public class Items {
     private static List<String> names;

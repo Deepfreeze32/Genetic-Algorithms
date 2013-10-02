@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package satsolving;
 
 import java.util.ArrayList;
@@ -10,7 +6,7 @@ import java.util.Scanner;
 
 /**
  * The Satisfiability Solving GA.
- * @author tcc10a
+ * @author Deepfreeze32
  */
 public class SatSolving {
     public static void main(String[] args) {

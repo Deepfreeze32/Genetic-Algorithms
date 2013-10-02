@@ -1,15 +1,11 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package satsolving;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author tcc10a
+ * The Genitor implementation for Sat Solving.
+ * @author Deepfreeze32
  */
 public class Genitor {
     private static List<Solution> solutions;

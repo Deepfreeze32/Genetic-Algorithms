@@ -1,15 +1,11 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package nqueens;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author tcc10a
+ * The Genitor implementation for N-Queens
+ * @author Deepfreeze32
  */
 public class Genitor {
 
