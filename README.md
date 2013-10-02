@@ -1,7 +1,7 @@
 Project Description
 ===================
 
-A Genetic Algorithms project for CS 467: Introduction to Artifical Intelligence
+A Genetic Algorithms project for CS 467: Introduction to Artificial Intelligence
 
 Files
 -----
